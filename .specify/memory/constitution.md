@@ -1,13 +1,14 @@
 <!--
-Version change: None (initial creation)
+Version change: 1.0.0 → 1.1.0
 List of modified principles:
-- Calidad del Código (Added)
-- Arquitectura (Added)
-- Convenciones de Código (Added)
-- Convenciones de Repositorio (Added)
-Added sections: Core Principles, Convenciones, Governance
+- Ningún principio modificado (los cuatro principios rectores fueron reafirmados sin cambios)
+Added sections:
+- Governance: materializadas las reglas de gobernanza (procedimiento de enmienda, política de versionado y revisión de cumplimiento)
 Removed sections: None
-Follow-up TODOs: RATIFICATION_DATE, Governance Rules
+Resolved TODOs:
+- RATIFICATION_DATE: establecido en 2026-08-13 (fecha de adopción del proyecto)
+- GOVERNANCE_RULES: materializado en la sección Governance
+Follow-up TODOs: None
 -->
 # Bistro Constitution
 
@@ -28,6 +29,11 @@ Los identificadores, clases y métodos deben estar escritos en inglés. Los come
 Los commits deben seguir el formato `clase-NN-slug`. El repositorio debe incluir un archivo `README.md` con instrucciones claras para iniciar el proyecto.
 
 ## Governance
-TODO(GOVERNANCE_RULES): Define las reglas de gobernanza del proyecto, incluyendo el procedimiento de enmienda de esta constitución, la política de versionado y las expectativas de revisión de cumplimiento.
 
-**Version**: 1.0.0 | **Ratified**: TODO(RATIFICATION_DATE) | **Last Amended**: 2026-08-13
+La presente constitución prevalece sobre cualquier otra práctica o convención del proyecto.
+
+- **Procedimiento de enmienda**: Toda enmienda debe documentarse en este archivo mediante un Sync Impact Report y requiere aprobación explícita antes de aplicarse. Si el cambio afecta la compatibilidad de las convenciones vigentes, debe acompañarse de un plan de migración.
+- **Política de versionado**: Se utiliza versionado semántico (MAJOR.MINOR.PATCH). MAJOR para eliminaciones o redefiniciones de principios de gobernanza; MINOR para nuevos principios o expansiones de guía; PATCH para aclaraciones, redacción o correcciones no sustanciales.
+- **Revisión de cumplimiento**: Toda revisión de código y todo pull request deben verificar el cumplimiento de estos principios. La complejidad no justificada debe rechazarse y toda excepción debe justificarse explícitamente por escrito.
+
+**Version**: 1.1.0 | **Ratified**: 2026-08-13 | **Last Amended**: 2026-08-13
