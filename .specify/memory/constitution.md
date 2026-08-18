@@ -15,7 +15,19 @@ Follow-up TODOs: None
 ## Core Principles
 
 ### I. Calidad del Código
-Se debe aplicar SOLID y Clean Code en todo el proyecto. La separación de responsabilidades debe seguir un patrón de capas (controller, service, repository). El manejo global de excepciones debe implementarse con `@RestControllerAdvice` y `ProblemDetail` (RFC 7807). La validación de entrada debe realizarse con Bean Validation en los DTOs.
+
+Se debe aplicar SOLID y Clean Code en todo el proyecto. La separación de responsabilidades debe seguir un patrón de capas por módulo.
+
+**Estructura de paquetes DENTRO de cada módulo: exactamente `controller`, `service`, `repository` y `model`.** Cada uno con una única responsabilidad:
+
+- `controller`: adaptadores de entrada HTTP (controllers), DTOs de request/response y mappers MapStruct.
+- `service`: lógica de negocio y orquestación.
+- `repository`: interfaces de acceso a datos (Spring Data).
+- `model`: entidades JPA y enums del dominio.
+
+NO usar `domain`, `application`, `api`, `infrastructure` ni capas de arquitectura hexagonal.
+
+El manejo global de excepciones debe implementarse con `@RestControllerAdvice` y `ProblemDetail` (RFC 7807). La validación de entrada debe realizarse con Bean Validation en los DTOs.
 
 ### II. Arquitectura
 Se adoptará una arquitectura de monolito modular, resultando en un único artefacto desplegable con módulos que mantengan fronteras bien definidas. Los módulos se organizarán como sub-packages (ej., reservations, tables, notifications). Cada módulo debe encapsular su propio dominio, su repositorio y sus interfaces públicas.
@@ -36,4 +48,4 @@ La presente constitución prevalece sobre cualquier otra práctica o convención
 - **Política de versionado**: Se utiliza versionado semántico (MAJOR.MINOR.PATCH). MAJOR para eliminaciones o redefiniciones de principios de gobernanza; MINOR para nuevos principios o expansiones de guía; PATCH para aclaraciones, redacción o correcciones no sustanciales.
 - **Revisión de cumplimiento**: Toda revisión de código y todo pull request deben verificar el cumplimiento de estos principios. La complejidad no justificada debe rechazarse y toda excepción debe justificarse explícitamente por escrito.
 
-**Version**: 1.1.0 | **Ratified**: 2026-08-13 | **Last Amended**: 2026-08-13
+**Version**: 1.3.0 | **Ratified**: 2026-08-13 | **Last Amended**: 2026-08-13
