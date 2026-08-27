@@ -6,6 +6,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import javax.swing.text.html.Option;
 import java.util.List;
 import java.util.Optional;
 
@@ -26,4 +27,34 @@ public class TableServiceImpl implements TableService {
     public Optional<Table> lockTable(Long tableId) {
         return tableRepository.findByIdForUpdate(tableId);
     }
+
+
+
+    @Transactional
+    @Override
+    public Optional<Table> assignTableFor(int partySize) {
+
+        for( Table candidate : findCandidateTables(partySize)){
+            Optional<Table> locked = lockTable(candidate.getId());
+            if(locked.isPresent()){
+                return locked;
+            }
+        }
+        return Optional.empty();
+    }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

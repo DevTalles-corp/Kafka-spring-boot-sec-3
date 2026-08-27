@@ -11,4 +11,7 @@ public interface TableService {
 
     @Transactional
     Optional<Table> lockTable(Long tableId);
+
+    @Transactional
+    Optional<Table> assignTableFor(int partySize);
 }
