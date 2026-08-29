@@ -28,8 +28,6 @@ public class TableServiceImpl implements TableService {
         return tableRepository.findByIdForUpdate(tableId);
     }
 
-
-
     @Transactional
     @Override
     public Optional<Table> assignTableFor(int partySize) {
